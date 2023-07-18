@@ -27,27 +27,33 @@ public class SurgeryServiceImpl implements SurgeryService {
 
 
 
-    @Override
-    public HashMap<String, String> Create(Surgery s) {
-        repo.save(s);
-        HashMap<String, String> map = new HashMap<>();
-        map.put("status", "success");
-        return map;
-    }
+//    @Override
+//    public HashMap<String, String> Create(Surgery s) {
+//        repo.save(s);
+//        HashMap<String, String> map = new HashMap<>();
+//        map.put("status", "success");
+//        return map;
+//    }
 
     @Override
     public List<Surgery> View() {
+
         return repo.listSurgery();
     }
-    @Override
-    public HashMap<String, String> Delete(Surgery t) {
-        repo.delete(t.getId());
-        HashMap<String,String> map=new HashMap<>();
-        map.put("status","success");
-        repo.addnotes(t.getId());
-        return map;
 
+
+
+    @Override
+    public Surgery updateDetails(Surgery s) {
+        Surgery existingDetails=repo.findById(s.getId()).get();
+        existingDetails.setNote(s.getNote());
+        existingDetails.setStatus1(1);
+        Surgery surgeryUpdate = repo.save(existingDetails);
+        return surgeryUpdate;
     }
+
+
+
 
 
 }

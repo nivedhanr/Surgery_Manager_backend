@@ -7,10 +7,12 @@ import java.util.HashMap;
 import java.util.List;
 
 public interface SurgeryService {
-    public HashMap<String,String> Create(Surgery s);
+//    public HashMap<String,String> Create(Surgery s);
     public List<Surgery> View();
 
-    public HashMap<String,String> Delete(Surgery t);
 
 
+
+
+    Surgery updateDetails(Surgery s);
 }

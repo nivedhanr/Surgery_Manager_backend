@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -12,6 +13,7 @@ import lombok.NoArgsConstructor;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 @Table(name = "surgery_list")
 public class Surgery {
     @Id
@@ -25,7 +27,7 @@ public class Surgery {
     private boolean status;
     private String note;
     private int status1=0;
-
+    private String tools_required;
 //    public Surgery() {
 //    }
 //
